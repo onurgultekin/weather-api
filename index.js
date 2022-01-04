@@ -36,6 +36,6 @@ app.get('/api/weather/:name', function (req, res) {
   // so I decided not to handle if city exist in my hard-coded array list.
 });
 
-app.listen(5000, function () {
-  console.log("App is running on port 5000");
+app.listen(`${process.env.PORT}`, function () {
+  console.log("App is running on port " + `${process.env.PORT}`);
 });
