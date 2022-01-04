@@ -25,7 +25,8 @@ app.get('/api/cities', function (request, response) {
 
 app.get('/api/weather/:name', function (req, res) {
   // Get city name from URL
-  const cityName = req.params.name;
+  const cityName = encodeURI(req.params.name);
+  console.log(cityName);
   // Call open weather map api
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
   request(url, function (err, response, body) {
