@@ -5,8 +5,7 @@ const bodyParser = require('body-parser');
 const cities = [
   { name: 'Istanbul', country: 'Turkey' },
   { name: 'New York', country: 'USA' },
-  { name: 'London', country: 'England' },
-  { name: 'sadas', country: 'England' }
+  { name: 'London', country: 'England' }
 ]; // Cities could be collected from a mongoDB collection.
 const app = express();
 
@@ -27,7 +26,6 @@ app.get('/api/weather/:name', function (req, res) {
   const cityName = req.params.name;
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
   request(url, function (err, response, body) {
-    console.log(err, response, body);
     let weather = JSON.parse(body);
     res.json(weather);
   })
