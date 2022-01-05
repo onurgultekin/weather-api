@@ -24,10 +24,10 @@ To run the unit tests you have to run:
 
 /GET cities:
   http://localhost:5000/api/cities
-  
+
 /GET weather/:city_name:
   http://localhost:5000/api/weather/:name
 
-or you can see it live at:
+if you do not want to run in localhost, you can see it live at:
 
     https://weather-api-for-weather-app.herokuapp.com/
