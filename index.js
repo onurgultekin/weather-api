@@ -38,6 +38,10 @@ app.get('/api/weather/:name', function (req, res) {
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
   request(url, function (err, response, body) {
     let weather = JSON.parse(body);
+    weather.main.temp = Math.ceil(weather.main.temp);
+    weather.main.feels_like = Math.ceil(weather.main.feels_like);
+    weather.main.temp_min = Math.ceil(weather.main.temp_min);
+    weather.main.temp_max = Math.ceil(weather.main.temp_max);
     res.json(weather);
   })
   // If city does not exist in open weather map api, it already returns 'not found',
